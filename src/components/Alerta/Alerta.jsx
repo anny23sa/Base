@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Alerta = () => {
+const Alerta = ({ tipo, mensaje }) => {
   return (
-    <div>Alerta</div>
-  )
-}
+    <div className={`alert ${tipo}`}>
+      {mensaje}
+    </div>
+  );
+};
 
-export default Alerta
+export default Alerta;

@@ -23,3 +23,4 @@ export const BaseColaboradores = [
         telefono: "99226644"
     },
 ]
+export default BaseColaboradores
