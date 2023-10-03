@@ -9,6 +9,8 @@ const Formulario = ({ onAgregarColaborador }) => {
     telefono: '',
   });
 
+  const [error,setError] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNuevoColaborador({ ...nuevoColaborador, [name]: value });
@@ -17,7 +19,23 @@ const Formulario = ({ onAgregarColaborador }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Validar y agregar el nuevo colaborador a la lista
-    onAgregarColaborador(nuevoColaborador);
+
+    if (
+      nuevoColaborador.nombre === '' ||
+      nuevoColaborador.email === '' ||
+      nuevoColaborador.edad === '' ||
+      nuevoColaborador.cargo === '' ||
+      nuevoColaborador.telefono === ''
+    ) {
+      setError(true);// evitar agregar si hay campos vacios
+    } else {
+      setError(false); 
+
+    //onAgregarColaborador(nuevoColaborador);
+    <Formulario onAgregarColaborador={nuevoColaborador}
+  mensajeAlerta={mensajeAlerta} // Pasa mensajeAlerta como una prop
+  tipoAlerta={tipoAlerta} // Asegúrate de pasar tipoAlerta si también lo necesitas
+/>
     // Limpiar el formulario
     setNuevoColaborador({
       nombre: '',
@@ -26,11 +44,25 @@ const Formulario = ({ onAgregarColaborador }) => {
       cargo: '',
       telefono: '',
     });
-  };
+    //mostrar mensaje de exito
+  }
+};
 
   return (
     <div className='container'>
       <h2>Agregar Colaborador</h2>
+
+      {error && (
+        <div className={`alert alert-danger`} role="alert">
+          Completa todos los campos.
+        </div>
+      )}
+      {mensajeAlerta && tipoAlerta && (
+        <div className={`alert alert-${tipoAlerta}`} role="alert">
+          {mensajeAlerta}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit}>
 
       <div className="form-group">
