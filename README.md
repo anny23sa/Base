@@ -1,4 +1,5 @@
-# React + Vite
+ Boton Buscar sigue sin funcionar (trabajar en ello)
+ # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
