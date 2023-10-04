@@ -68,7 +68,7 @@ const App = () => {
       <Listado colaboradores={colaboradores} onEliminar={eliminarColaborador} />
       <Formulario onAgregarColaborador={agregarColaborador} />
       {mensajeAlerta && tipoAlerta && (
-        <Alert tipo={tipoAlerta} mensaje={mensajeAlerta} />
+       <Alert tipo={tipoAlerta} mensaje={mensajeAlerta} />
       )}
     </div>
   );
